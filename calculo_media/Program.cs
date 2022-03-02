@@ -23,9 +23,35 @@ namespace calculo_media
             Console.WriteLine("Nota 4: ");
             Nota4 = Convert.ToDecimal(Console.ReadLine());
 
-            Media = (Nota1 + Nota2 + Nota3 + Nota4)/ 4;
+            Media = ((Nota1 * 2) + (Nota2 * 3) + (Nota3 * 4) + (Nota4 * 1)) / 10;
+            Console.WriteLine("Sua média é "+ Media.ToString("0.0"));
 
-            Console.WriteLine("Sua média é "+ Media);
+            if (Media >= 7)
+            {
+                Console.WriteLine("Parabéns " + Name + ", você passou de ano!");
+            }
+            else if (Media < 5)
+            {
+                Console.WriteLine("Você foi reprovado!");
+            }
+            else if (Media >= 5 && Media < 7)
+            {
+                Console.WriteLine("Aluno em exame");
+                Console.WriteLine("Insira a nota do exame: ");
+
+                decimal NExame = Convert.ToDecimal(Console.ReadLine());
+                Media = (Media + NExame) / 2;
+
+                if (Media >= 5)
+                {
+                    Console.WriteLine(Name + " você foi aprovado. Sua média final é " + Media.ToString("0.0"));
+                }
+                else
+                {
+                    Console.WriteLine(Name + " você foi reprovado. Sua média final é " + Media.ToString("0.0"));
+                }
+
+            }
 
         }
     }
